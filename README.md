@@ -1,2 +1,10 @@
-# arm7-lpc2148-programming
-C programs, Proteus simulations, and documentation PDFs for ARM7 LPC2148 microcontroller. Includes GPIO, timers, UART, I²C, SPI, ADC, PWM, and peripheral interfacing examples. Suitable for beginners and embedded engineers learning ARM7 development.
+# ARM7 LPC2148 Programming & Simulations
+
+This repository contains **C programs** and **Proteus simulations** for the ARM7TDMI-based **LPC2148 microcontroller**.  
+It is made for students and embedded engineers to practice ARM7 programming using Keil µVision and Proteus.
+
+## 📌 Contents
+- Basic programs: GPIO, timers, interrupts, UART, I²C, SPI, ADC, PWM
+- Peripheral interfacing: LCD, sensors, motors, etc.
+- Mini projects for practice
+- Proteus circuit files + Keil project files
