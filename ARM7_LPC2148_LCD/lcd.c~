@@ -1,0 +1,94 @@
+#include <LPC214X.H>
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+#define RS (1<<24)
+#define RW (1<<23)
+#define E (1<<22)
+
+ int i;
+void data(char);
+void command(char);
+void transmit(char *);
+
+char c[]="QIS_ACADEMY";
+int main()
+{
+
+
+PINSEL2=0;
+PINSEL1=0;
+//PINSEL0=0x00050005;
+
+IODIR0|=(1<<10)|(1<<11)|(1<<12)|(1<<13);   //LCD DATA LINE
+//IODIR0&=~(1<<2);                           //SWITCH	P0.3
+IODIR1|=(1<<22)|(1<<23)|(1<<24); 
+command(0x02);                             //LCD COMMANDS
+command(0x28);
+command(0x0c);
+command(0x01);
+command(0x80);
+while(1)
+{
+transmit(c);
+command(0x80);
+}
+}
+
+
+void command(char a)
+{
+char b;
+b=a&0xf0;
+IOPIN0&=~(0X3C00);
+IOCLR1=RS;
+IOCLR1=RW;
+IOPIN0|=(b<<6);
+
+IOSET1=E;
+for(i=0;i<2500;i++);
+IOCLR1=E;
+
+b=a&0x0f;
+IOPIN0&=~(0X3C00);
+
+IOPIN0|=(b<<10);
+
+IOSET1=E;
+for(i=0;i<2500;i++);
+IOCLR1=E;
+
+}
+void data(char a)
+{
+char b;
+b=a&0xf0;
+IOPIN0&=~(0X3C00);
+IOSET1=RS;
+IOCLR1=RW;
+IOPIN0|=(b<<6);
+
+IOSET1=E;
+for(i=0;i<2500;i++);
+IOCLR1=E;
+
+b=a&0x0f;
+IOPIN0&=~(0X3C00);
+
+IOPIN0|=(b<<10);
+
+IOSET1=E;
+for(i=0;i<2500;i++);
+IOCLR1=E;
+}
+
+
+void transmit(char *a)
+{
+int i;
+for(i=0;a[i]!='\0';i++)
+{
+data(a[i]);
+}
+}

@@ -1,0 +1,7 @@
+Dependencies for Project 'lcd', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x4CCB1E7A)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Philips" --list "Startup.lst" --xref -o "Startup.o" --depend "Startup.d")
+F (.\lcd.c)(0x66CEC24E)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Philips" -o "lcd.o" --omf_browse "lcd.crf" --depend "lcd.d")
+I (C:\Keil\ARM\INC\Philips\LPC214X.H)(0x4CCA6FCC)
+I (C:\Keil\ARM\RV31\INC\string.h)(0x4CCA6E34)
+I (C:\Keil\ARM\RV31\INC\stdio.h)(0x4CCA6E34)
+I (C:\Keil\ARM\RV31\INC\stdlib.h)(0x4CCA6E34)
